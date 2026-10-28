@@ -4,7 +4,7 @@ Before styling a real client's site, understand the customer, offer, market and 
 
 ## 1. Frame the business
 
-Establish the service, actual service area, ideal customer, primary enquiry/action, differentiators the owner can substantiate, and constraints such as budget, availability or existing brand. Ask which competitors customers mention, then verify the market independently. Save agreed facts and unanswered questions in private `.agency-commons/BRIEF.md`.
+Establish the service, actual service area, ideal customer, primary enquiry/action, differentiators the owner can substantiate, and constraints such as budget, availability or existing brand. Ask which competitors customers mention, then verify the market independently. Save agreed facts and unanswered questions in the selected private client record's `BRIEF.md`. Keep research and site plans beside it; publish only approved public-safe context into the site's `BRAND.md`. If the agency workspace is unavailable, use ignored `.agency-commons/` notes temporarily and provide a handoff summary.
 
 For a new idea, identify the customer's current alternatives as well as businesses with similar websites. Doing it themselves, waiting, or choosing a different service may be more relevant than a visually similar brand.
 
@@ -24,7 +24,7 @@ Use web/search tools for discovery and a browser tool for rendered pages and int
 
 ## 3. Record what is visible and what remains a hypothesis
 
-Create private `.agency-commons/RESEARCH.md` with this compact table:
+Create `RESEARCH.md` in that private client record with this compact table:
 
 | Competitor / URL / date | Why relevant | Offer and primary CTA | First screen and section order | Trust evidence and friction | What we would adapt / reject | Evidence strength |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Each section should answer a customer question or support a decision. Use concre
 
 ## 5. Plan the site and each page
 
-Create private `.agency-commons/SITE-PLAN.md`: page URL, intended customer/question, primary action, required facts/proof, inbound/outbound links and section outline. Start with one page when it adequately answers the brief. Add service pages for distinct needs, real location information where useful, an about/team page when it builds credible trust, and blog articles that answer supporting questions. Don't generate near-identical location pages.
+Create `SITE-PLAN.md` in that private client record: page URL, intended customer/question, primary action, required facts/proof, inbound/outbound links and section outline. Start with one page when it adequately answers the brief. Add service pages for distinct needs, real location information where useful, an about/team page when it builds credible trust, and blog articles that answer supporting questions. Don't generate near-identical location pages.
 
 An initial homepage outline might be:
 

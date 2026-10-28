@@ -29,7 +29,7 @@ The Linux preview currently lists Ubuntu 24.04/26.04 LTS, Debian 13, Fedora 43/4
 
 **Linux:** inspect distribution, architecture and installed versions. Use Node's supported installation route or a trusted package manager/version manager that supplies the required version. A distribution's default Node package may be older than this project's minimum. Explain package-manager or system changes before administrator approval; don't run project npm commands as root.
 
-On every OS, verify `node --version` and `npm --version`, then run `npm ci`, `npm run doctor`, and `npm run dev` from the project folder. The agent should do this work, not send a beginner a large command list. Preserve the lockfile; don't install an incompatible runtime and remove engine checks to force it through.
+On every OS, verify `node --version` and `npm --version`. In the controller, run `npm run doctor` and follow `AGENCY.md` in the docs folder to create/select a client site. In that website folder, run `npm ci`, `npm run doctor`, and `npm run dev`. The agent should do this work, not send a beginner a large command list. Preserve the lockfile; don't install an incompatible runtime and remove engine checks to force it through.
 
 ## CLI fallback
 

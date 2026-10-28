@@ -1,6 +1,6 @@
 # Client handoff
 
-Copy this into a private client project and fill it through conversation. Don't place credentials or customer records in it.
+Copy this into the private client record and fill it through conversation. Don't place credentials or customer records in it.
 
 - Business and site URL:
 - Client owner and day-to-day contact:
@@ -25,4 +25,4 @@ Copy this into a private client project and fill it through conversation. Don't 
 
 Demonstrate one change, one enquiry check if applicable, and one recovery scenario. Ask the client to locate the live site and identify who owns each important account. Invite appropriate roles instead of sharing a personal password. Remove temporary access when the agreed work is complete.
 
-For multiple clients, keep separate repositories and hosting resources with clear ownership. Start with a private table of client, URL, owner, next action, renewal, and last form check. Build a shared management application only when the table stops solving the problem.
+For multiple clients, keep separate repositories and hosting resources with clear ownership. Use the agency workspace described in [AGENCY.md](AGENCY.md) for the client directory, tasks, renewals and checks. The website must remain maintainable without that workspace; deliver only the site and appropriate client-facing handoff information.

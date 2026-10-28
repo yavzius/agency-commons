@@ -1,0 +1,6 @@
+---
+import { site } from '../site.config.mjs';
+interface Props { home?: boolean; }
+const { home = false } = Astro.props;
+---
+<footer class="shell site-footer"><span>© {new Date().getFullYear()} {site.businessName}</span><a href={home ? '#main' : '/'}>{home ? 'Back to top ↑' : 'Home'}</a></footer>

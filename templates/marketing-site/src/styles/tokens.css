@@ -1,0 +1,42 @@
+/* Exact design values live here. DESIGN.md records intent and usage. */
+:root {
+  color-scheme: light;
+  --color-surface: #f6f3ec;
+  --color-surface-soft: #e6e8dc;
+  --color-surface-contact: #e9dfce;
+  --color-text: #243e34;
+  --color-text-muted: #4c5c52;
+  --color-border: #c6c9bb;
+  --color-action: #243e34;
+  --color-action-hover: #324e40;
+  --color-on-action: #f6f3ec;
+  --color-accent: #c65a37;
+  --color-accent-text: #98502f;
+  --color-focus: #98502f;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --text-display: clamp(3.3rem, 6.5vw, 5.6rem);
+  --text-heading: clamp(2.2rem, 4vw, 3.4rem);
+  --text-article-title: clamp(2.6rem, 5.5vw, 4.4rem);
+  --text-small: .875rem;
+  --leading-body: 1.7;
+  --space-xs: .5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-section: 4.5rem;
+  --width-content: 73.75rem;
+  --width-reading: 48.75rem;
+  --gutter: 2rem;
+  --border-width: 1px;
+  --radius-control: 0;
+  --motion-feedback: 120ms;
+}
+/* Native CSS variables cannot be used in media-query conditions. */
+@media (max-width: 760px) {
+  :root { --gutter: 1.125rem; --space-section: 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-feedback: 0ms; }
+}

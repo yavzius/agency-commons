@@ -9,6 +9,6 @@ Research a small relevant competitor set with live sources. Explain what makes e
 
 Turn findings into an original offer/message brief and a page/section plan. Ground claims and trust signals in the client's evidence. Consider the first screen on both phone and desktop and match the CTA to a real working action. Keep research proportional so the person gets a concrete draft soon.
 
-Save concise private notes under .agency-commons/ as described in the workflow. Present the recommended direction and the few material facts needed from the owner. Continue reversible drafting while awaiting missing facts; don't publish unverified claims or invent research results if browsing is unavailable.
+Save concise research in the selected private client record as described in the workflow. If that workspace is unavailable, use ignored local notes temporarily and provide a handoff summary. Present the recommended direction and the few material facts needed from the owner. Continue reversible drafting while awaiting missing facts; don't publish unverified claims or invent research results if browsing is unavailable.
 
 Hand the approved brief and structure to [frontend-quality](../frontend-quality/SKILL.md). Use optional upstream marketing skills only when they improve the current task; preserve their required references and the project's budget and authorization boundaries.

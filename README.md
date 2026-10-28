@@ -8,7 +8,7 @@ Run a small local-business web agency by talking to an agent.
 https://github.com/yavzius/agency-commons
 ```
 
-Use Codex, Claude Code, or your preferred coding agent. It handles setup and guides you from your first brief to a live website.
+Use Codex, Claude Code, or your preferred coding agent. It sets up your agency workspace and guides you from your first brief to a live website.
 
 **For agents:** follow [START.md](https://raw.githubusercontent.com/yavzius/agency-commons/main/START.md) to set up the project and guide the person forward.
 
@@ -32,9 +32,9 @@ Need help getting a coding agent ready? See [setup for Windows, macOS, and Linux
 
 | You | Your agent |
 | --- | --- |
-| Paste the repo link and grant workspace access when needed | Fetches an isolated working copy, reads the instructions and prepares the environment |
-| Describe the business and desired visitor action | Turns that into a short brief and builds a first draft |
-| Share business facts and review the proposed direction | Researches relevant competitors, writes the copy and plans the page structure |
+| Paste the repo link and grant workspace access when needed | Prepares your private agency workspace and a separate website project for the client |
+| Describe the business and desired visitor action | Organizes the brief, materials and next steps |
+| Share business facts and review the proposed direction | Researches competitors, writes the copy and builds a representative design |
 | Review the page on your phone and computer | Fixes the layout, copy, accessibility, and broken links |
 | Create or sign in to your Cloudflare account | Connects the tools and prepares free hosting |
 | Approve the finished preview and destination | Publishes it, opens the live URL, and checks it |
@@ -59,11 +59,21 @@ The first launch uses a free `workers.dev` address. A custom domain, business in
 - “Research my competitors and explain which patterns we should adapt before designing.”
 - “Prepare a weekly report and draft welcome emails for new clients.”
 
-The agent keeps local notes so a new conversation can pick up where you stopped. These notes are excluded from Git by default.
+## Your agency, organized
+
+Your private agency workspace tracks clients, work, decisions, reports and renewals. Each client has an independent website repository, so updates and handoff stay separate. Agency Commons supplies the shared guidance and starter templates.
+
+Say “Add a client,” “Continue Acme,” or “What needs attention this week?” The agent maintains the records and opens the right project. See [the agency workflow](docs/AGENCY.md).
+
+Share what you already have: a business URL, notes, brand files or a shared Drive folder. The agent turns it into a brief, proposes the message and page structure, and builds a small design system you can review. See [the design workflow](docs/DESIGN.md).
+
+Durable client work is saved in your private agency repository. Local session notes and machine-specific paths are excluded from Git.
 
 ## Included in this first version
 
+- An agency scaffolder with client records, task lists, decisions and independent site projects.
 - A working Astro marketing page with responsive styling and a fictional sample business.
+- Shared design tokens, reusable components and a local design-review page.
 - A working Markdown blog with local draft previews, publication checks, metadata and sitemap integration.
 - A free Cloudflare deployment configuration and a check that prevents publishing an unfinished real-business setup.
 - Agent-guided account, dependency, connection, preview, launch, and recovery instructions.
@@ -76,25 +86,24 @@ The agent keeps local notes so a new conversation can pick up where you stopped.
 
 The initial site has a contact section, not a connected lead form. The agent adds and verifies a real backend when you reach that step. Blogging works without a CMS. Automations are documented recipes, not active schedules or preconnected inboxes. There is no shared client dashboard to configure before your first launch.
 
-Use one copy per client project, with a private agency index connecting them. Later modules guide the agent through real setup; links to a provider do not mean that integration is preinstalled. Ecommerce and payment systems such as Stripe are future tracks.
+Use the private workspace to manage clients and a separate repository for each website. Later modules guide the agent through real setup; links to a provider do not mean that integration is preinstalled. Ecommerce and payment systems such as Stripe are future tracks.
 
 ## For maintainers
 
-The agent normally runs these commands for the learner:
+The root is the controller. The website starter lives in `templates/marketing-site/`.
 
 ```sh
-npm ci
 npm run doctor
-npm run dev
 npm test
-npm run build
-npm run ready
+npm run check:generated
 ```
 
-`npm run dev` opens a local development server. `npm run preview` previews a production build. `npm run deploy` checks the site, builds it, and invokes Wrangler; it requires Cloudflare authentication and a personalized Worker name first. It never enables a paid plan.
+`check:generated` creates an isolated agency and client site, installs that site's locked packages, runs its tests and builds it. CI runs this on Windows, macOS and Linux. For template development, use `npm run template:install`, `template:test` and `template:build`.
 
-See [setup](docs/SETUP.md) for account and connection steps. The site content lives in `src/site.config.mjs`; the agent edits it from your brief. The project uses pinned dependencies and a lockfile. Original code and docs are MIT licensed; the bundled Anthropic frontend skill retains its Apache-2.0 license in [third-party notices](THIRD_PARTY_NOTICES.md). Connected services have their own terms and limits.
+The agent creates workspaces using `npm run agency -- init <new-agency-folder>` and, from that workspace, `npm run agency -- client <client-id> --site <new-site-folder>`. These commands never create remote repositories, connect accounts or deploy. See [the agency guide](docs/AGENCY.md).
 
-Astro builds the initial marketing site and blog into static files, keeping delivery simple and avoiding a database for page content. Add D1 for stored enquiries when needed. The source and workflows are open; Cloudflare, Google and Meta remain external services in the client's own accounts. The static output can move to another compatible host.
+Inside a generated site, `npm run dev` starts the website and local `/design/` review. `npm run build` produces the static site without internal review pages. `npm run deploy` runs readiness, build and Wrangler; it requires verified Cloudflare access and a personalized Worker name. See [site setup](docs/SETUP.md).
 
-This is an initial starter, not a promise that every account setup or operating system has been tested. Account verification, browser consent, and service availability can require your involvement.
+The starter uses Astro and Markdown, with no database for page content. Add D1 for stored enquiries when needed. The static output can move to another compatible host. Provider accounts, limits and permissions remain separate from the open-source toolkit.
+
+Original code and docs are MIT licensed; the bundled Anthropic frontend skill retains its Apache-2.0 license in [third-party notices](THIRD_PARTY_NOTICES.md). See the [design and architecture research](docs/DESIGN-AND-AGENT-ARCHITECTURE.md) for the underlying choices. Account verification, browser consent and service availability can still require your involvement.

@@ -1,0 +1,8 @@
+---
+interface Props { title: string; text: string; number?: number; }
+const { title, text, number } = Astro.props;
+---
+<article class="card">
+  {number !== undefined && <span class="number">{String(number).padStart(2, '0')}</span>}
+  <h3>{title}</h3><p>{text}</p>
+</article>

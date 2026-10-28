@@ -1,5 +1,7 @@
 # Setup and deployment runbook
 
+This runbook operates inside an independent client website. If you are in the toolkit or agency workspace, first create/select a site using [AGENCY.md](AGENCY.md), then read that site's own instructions. All website commands and paths below are relative to that site.
+
 For the agent: perform the technical steps. Give the person only the next action that needs their browser, account, or consent. Check current official instructions when a screen or command differs.
 
 ## 1. Open the project
@@ -21,7 +23,7 @@ Inspect the OS and existing commands first. Never install a second copy of a wor
 | Dependency | Needed when | Agent action |
 | --- | --- | --- |
 | Node.js and npm | Local website preview/build | Verify the package's engine requirement; if absent/incompatible, guide the official Node LTS installation for that OS |
-| Project packages | First local preview | Run `npm ci` from this folder; use the committed lockfile |
+| Project packages | First local preview | Run `npm ci` from the client website folder; use the committed lockfile |
 | Git | Recovery checkpoints and GitHub backup | Check availability, guide OS installation if needed, then initialize the learner's own history |
 | GitHub CLI | Only if using CLI account/repo actions | Prefer an available GitHub connection; otherwise install `gh` and guide browser login |
 | Wrangler | Cloudflare deployment | Already pinned as a project dependency; use `npx wrangler`, not an extra global version |
@@ -58,7 +60,7 @@ If MCP is temporarily unavailable but authenticated Wrangler can do the job, con
 
 ## 4. Prepare the first site
 
-Update `src/site.config.mjs` from the agreed brief and adjust the page/styles as needed. The sample is fictional and visibly labeled. For a real business, replace the sample identity, supply a working contact address, and set `isDemo: false`.
+Use [DESIGN.md](DESIGN.md) to gather materials, establish the message and review a representative design. Update `BRAND.md` and the site's `DESIGN.md`, then implement the agreed facts in `src/site.config.mjs`, design values in `src/styles/tokens.css` and reusable patterns in `src/components/`. Review the homepage and local `/design/` route. The sample is fictional and visibly labeled. For a real business, replace the sample identity, supply a working contact address, and set `isDemo: false`.
 
 Choose a unique Worker name in `wrangler.jsonc` after checking the account for a collision. Don't overwrite an existing project. This file is deliberately valid JSON, even though Wrangler permits comments in `.jsonc` files; the readiness script reads it as JSON.
 
@@ -78,7 +80,7 @@ Keep a practice site marked as a demo and excluded from indexing. For a real lau
 
 Create a Git checkpoint. When the person is ready, guide a GitHub account/connection and create their own repository, preferably private for a real client's work unless they choose public. Check staged files for private material first. Do not push client work to this public starter's upstream remote.
 
-Record account owner, project name, public URL, last verified version, agreed costs, and next action locally. Use `HANDOFF.md` for client-owned accounts. Never transfer or rotate existing client access without authorization.
+Record account owner, project name, public URL, last verified version, agreed costs and next action in the private client record. If that workspace is unavailable, provide the information for handoff and preserve local continuity without claiming the agency was updated. Use `HANDOFF.md` for client-owned accounts. Never transfer or rotate existing client access without authorization.
 
 ## Free-first boundaries
 

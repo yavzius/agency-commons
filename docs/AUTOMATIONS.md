@@ -41,7 +41,7 @@ Sending requires an explicit instruction or a previously agreed, narrow policy c
 
 ## A job definition the agent can maintain
 
-Save private configuration in `.agency-commons/AUTOMATIONS.md`. Each active job needs:
+Save non-secret job configuration in `AUTOMATIONS.md` in the private client record. Keep credentials in the provider/runner secret store. Temporary ignored local notes are not a durable schedule register. Each active job needs:
 
 - Client/project and verified account/property identifiers; do not include credentials.
 - Purpose, exact inputs, allowed operations and output destination.

@@ -49,7 +49,7 @@ After connection, the person can ask: “Connect this site to my domain,” “S
 
 ## Keep agency work separated
 
-Use one project copy/repository per client site. Maintain a private agency index pointing to those copies and their owners, live URLs, next actions, renewals and last checks. Don't overwrite one client's configuration to start another.
+Use one project copy/repository per client site. Use [the private agency workspace](AGENCY.md) for its client index, owners, URLs, tasks, renewals and checks. Don't overwrite one client's configuration to start another.
 
 Reconnect or choose the appropriate client account when needed. Scope every report and mutation to explicit project/property identifiers. Don't send one client's leads, credentials, or private reports into another client's conversation.
 

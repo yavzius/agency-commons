@@ -1,4 +1,4 @@
-name: Check starter
+name: Check agency and generated site
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       - run: npm ci
       - run: npm run doctor
       - run: npm test
-      - run: npm run build
+      - run: npm run check:generated
 
 # Readiness intentionally fails until the learner chooses a Worker name.
 # This workflow builds and tests; it has no deployment or account credentials.

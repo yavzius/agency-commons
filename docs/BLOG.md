@@ -8,7 +8,7 @@ Say: “Help me answer a question our customers keep asking. Draft an article, s
 
 Start from real customer questions, service decisions, preparation guides, or documented projects. Choose one audience, one useful answer, and a relevant next action. A local accountant might explain what to bring to a first appointment; a gardener might explain how their own site visit works. Ask the owner for their actual process before writing it.
 
-Keep a small plan in local `.agency-commons/CONTENT.md`: topic, customer question, intended page, evidence needed, owner/reviewer, status, next action, and review date. Avoid duplicating an existing service page. A useful update to an existing article can be better than another new post.
+Keep a small `CONTENT.md` plan in the private client record (or temporary ignored local notes when the agency workspace is unavailable): topic, customer question, intended page, evidence needed, owner/reviewer, status, next action, and review date. Avoid duplicating an existing service page. A useful update to an existing article can be better than another new post.
 
 Content can help search visibility, but a publishing quota is not a ranking strategy. Follow [the SEO/GEO workflow](GROWTH.md): accurate answers, useful structure, crawlable pages, relevant internal links, and consistent business facts. Don't generate thin city-by-city copies, fictional projects, invented testimonials, credentials, or unsupported claims. AI-answer citations and search rankings are not guaranteed.
 

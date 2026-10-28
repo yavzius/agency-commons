@@ -1,6 +1,6 @@
 # Frontend skills and components
 
-Make a page that fits the business and helps its customer act. Start with [research, copy and structure](DISCOVERY.md), then choose the visual direction and components. A library supplies implementation pieces; it does not choose the offer or prove that a page converts.
+Make a page that fits the business and helps its customer act. Start with [research, copy and structure](DISCOVERY.md), then follow [the design workflow](DESIGN.md) to establish the visual direction, shared tokens and reusable components. A library supplies implementation pieces; it does not choose the offer or prove that a page converts.
 
 ## Skills available immediately
 

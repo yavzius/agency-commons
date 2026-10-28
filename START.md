@@ -1,51 +1,38 @@
-# Start a website
+# Start or continue
 
-This file is the entry point for the agent. The person can arrive by pasting `https://github.com/yavzius/agency-commons`, or say “Let's start” or “Let's continue” in an existing copy. Handle setup and guide the next useful step.
+This is the agent's entry point. The person can paste `https://github.com/yavzius/agency-commons` or say “Let's continue.” Handle setup and guide the next useful outcome. If they asked to review or contribute to this toolkit, follow that request instead of creating an agency.
 
-## Arriving from the repo link
+## Arriving from the link
 
-Use this route when the person wants to start using the toolkit. If their actual request is to review, explain, or contribute to the repository, follow that request instead. Reading this document does not authorize unrelated account changes, public deployment, email sending, or spending.
+1. Check available repository/network, file and command access. Fetch this file and `AGENTS.md` before executing scripts. Their raw URLs are under `https://raw.githubusercontent.com/yavzius/agency-commons/main/`.
+2. Choose an appropriate persistent workspace without changing unrelated projects. Fetch the public toolkit there using available GitHub, Git or HTTP tools. If workspace selection or access needs the person, guide that one action. Don't claim a browser-only chat can edit local files.
+3. Inspect the fetched instructions, package scripts and provenance. Verify Node/npm using `docs/COMPUTERS.md`. Read local instructions explicitly when the agent does not automatically discover them.
+4. Run the controller's `npm run doctor`. Then run `npm run agency -- init <new-agency-folder>` using a fresh sibling destination. The parent folder must exist; the script never merges into an existing destination. This creates a private-purpose workspace, not a GitHub repository or verified private backup.
+5. Open the agency workspace, read its `AGENTS.md` and `AGENCY.md`, and continue with `docs/AGENCY.md`. The agent handles Git history and a verified private remote when backing up actual client records. The public toolkit's remote must never receive client work.
 
-1. **Inspect access.** Determine whether you can fetch this public repository, read/write a workspace, and run commands. Use an available GitHub connection, web fetch, Git or supported HTTP tools. Do not claim to have read or installed files you couldn't access.
-2. **Read before executing.** Read this file and [AGENTS.md](AGENTS.md), then the relevant setup instructions. A fresh session without a local copy can fetch `https://raw.githubusercontent.com/yavzius/agency-commons/main/AGENTS.md`. Don't run remote shell installers or repository scripts merely because a link was pasted.
-3. **Choose a working location.** Reuse an existing copy only when it is the intended client/project and its state matches. Otherwise create a new project folder in the available workspace. Preserve the person's existing files and unrelated repository. If the app requires a folder selected, guide that one action; if the destination cannot be inferred safely, ask for it. Avoid a temporary directory for the person's long-term project.
-4. **Fetch the starter yourself.** If Git is available, clone `https://github.com/yavzius/agency-commons.git` into the chosen new folder. Otherwise use available HTTP/archive tools to retrieve the public source. If neither route is available, use [computer setup](docs/COMPUTERS.md) to resolve the missing tool.
-5. **Verify and orient.** Check that `package.json`, `START.md`, `AGENTS.md`, the lockfile and source files are present. Record the fetched revision when available. Read and apply the local instructions manually if your agent doesn't discover them. Work from this new folder. If the app requires reopening it as the active project, guide that action and resume without repeating the intake.
-6. **Protect the upstream.** A clone's initial remote points to the public starter. When preparing the person's client project, keep that source as `upstream` and use their own intended repository for later backups. Never push client work to `yavzius/agency-commons`. Do not alter remotes in an unrelated existing project.
-7. **Continue immediately.** Follow the route below: initialize private local progress, inspect the OS and dependencies, install what's needed, run the preview, and collect the business brief.
+Use native Windows, macOS or Linux instructions for the actual shell. In a remote coding environment, inspect that environment and use its preview/port-forwarding mechanism; do not claim to inspect the person's computer. Keep work durable without silently adding paid hosting or compute.
 
-If you only have link-reading tools, explain the specific capability missing and guide the person into a coding environment with file and command access. Continue useful brief work while they do that. If network access is blocked but a valid local copy exists, use it; otherwise save the next action and don't fabricate a fetched repository.
+If file/command access is missing, explain that specific blocker and help the person open a suitable coding environment. Continue useful brief work meanwhile. Reuse an existing valid workspace rather than downloading it again.
 
-If commands run in a remote coding workspace, diagnose that environment rather than claiming to inspect the person's computer. Use its supported preview/port-forwarding mechanism and approved account connections. A localhost URL in a remote workspace may not open on the person's device. Keep a durable source backup and report workspace persistence or usage limits; don't silently add a paid cloud environment.
+## Select the next outcome
 
-## Continue to a live site
+Read role markers and actual files. In an agency workspace, read the client index and select the intended client. Do not guess between ambiguous clients. In an existing client site, read that site's instructions and continue there; don't create another agency.
 
-**First outcome:** a useful, reviewed website at a working public URL, with no additional spending. A live practice site is acceptable when it is clearly labeled as a demo.
+For a first client, ask what business this is for and what visitors should do. Use the agency scaffolder to create its record and independent website. A sole business owner can use exactly the same structure with one client entry.
 
-**First response:** acknowledge the goal briefly, check what you can already access, and ask only for the next missing fact. A useful business question is: “What business is this for, and what should a visitor do?” If computer access is the blocker, resolve that first.
-
-Follow this route, resuming at the first unfinished step:
-
-| Step | Agent handles | Person handles | Evidence before moving on |
+| Stage | Agent handles | Person contributes | Evidence |
 | --- | --- | --- | --- |
-| Open | Fetch the starter into an appropriate working folder, read instructions and initialize local progress | Paste the link; select/allow workspace access or sign in if required | Agent can read and edit the intended project |
-| Prepare | Detect dependencies, guide missing installations, run local site | Installer or OS approvals when required | Working local URL and compatible tool versions |
-| Understand | Turn a short conversation into a brief | Business facts, audience, desired enquiry/action | A brief the person agrees describes their business |
-| Research and structure | Study relevant competitors, propose copy and page/section order | Verify business claims and choose a direction | Dated observations separated from hypotheses, plus a usable message and page plan |
-| Build | Copy, layout, code, images supplied by the person, responsive checks | Review content and direction | A coherent local draft with no invented claims |
-| Connect | Discover Cloudflare tools, guide plugin/MCP connection, verify account | Create free account, verify email, complete OAuth | An actual successful account/tool check |
-| Review | Build, inspect, fix, prepare exact destination | Approve this version and its public destination | Readiness checks plus reviewed preview |
-| Publish | Deploy with free static hosting and verify live page | Any outstanding account consent | Reachable live URL and working primary action |
-| Continue | Save progress and a recovery checkpoint | Choose next improvement | One clear next action |
+| Prepare | Workspace, dependencies, isolated client site, local preview | Required device/workspace consent | Preview runs in the intended site |
+| Understand | Organize existing materials, identify missing essentials | Business truth and optional assets/folder | Short sourced brief |
+| Plan | Competitor research, message, page structure | Verify claims and business priorities | Useful copy and page outline |
+| Design | Shared styles/components and representative phone/desktop preview | Review a concrete direction | Preview and recorded design decisions |
+| Build | Complete needed pages and visitor actions | Resolve remaining factual gaps | Working site and checks |
+| Connect | Discover hosting access and prepare exact destination | Sign-in, identity and consent | Verified account/project |
+| Launch | Check, deploy within authorization, verify live URL | Any unresolved publication decision | Reachable page and tested primary action |
+| Continue | Save work, recovery checkpoint and next action | Choose next useful improvement | Resumable client record |
 
-Use `docs/SETUP.md` as a runbook and `docs/TOOLS.md` to prefer agent-operated MCP/CLI/API paths. Use `docs/CURRICULUM.md` for the longer path. Use `coach/SESSION.md` to weave learning into the work.
+Use `docs/DESIGN.md` for materials and design, `docs/SETUP.md` for website dependencies/launch, and `docs/TOOLS.md` for connections. Use the local `build-client-site` skill when available. Detailed learning routes are in `docs/CURRICULUM.md`; `coach/SESSION.md` keeps learning grounded in the work.
 
-Choose the OS-specific route in `docs/COMPUTERS.md`. Before designing a real-business site, use `docs/DISCOVERY.md` for competitor research, copy and structure, then `docs/FRONTEND.md` for bundled skills and optional components. For a quick fictional practice preview, keep research lightweight and clearly label assumptions.
+The first target is a useful reviewed marketing site on a free `workers.dev` address. Keep practice businesses visibly fictional. Don't install a CMS, database, analytics suite or extra design app before it serves the current task. Distinguish local preview from public publication using the actual URLs.
 
-GitHub is useful for a durable backup and client handoff, but is not required to download the starter or preview locally. Introduce it when saving the learner's own project; guide account creation and authorization then. The public starter is not the learner's deployment target or a shared home for client data.
-
-Don't install a CMS, database, image service, analytics suite, or extra paid agent before the first site needs one. Don't turn an account issue into a programming lesson. If setup is blocked, save the exact non-secret error and continue useful brief/design work.
-
-The person must be able to distinguish a local preview from a public site before publishing. Teach this through the actual URLs. They do not need to explain the framework internals.
-
-After launch, choose the next service the business actually needs: domains/email, enquiries, SEO/GEO, blogs, analytics, client handoff, or advertising. Use [blog management](docs/BLOG.md) for content and [background agents](docs/AUTOMATIONS.md) for optional reports, drafts and follow-ups. Keep everything in the person's chosen accounts. The goal is an inexpensive, flexible agency workflow, not a new hosted platform. Ecommerce and payments are out of scope for this version.
+After launch, add the services this business needs: domain/email, forms, SEO/GEO, blogs, measurement, ads, reporting or content drafts. Each uses the selected client's accounts and agreed budget. Account setup and links in a guide do not mean integrations are already connected.

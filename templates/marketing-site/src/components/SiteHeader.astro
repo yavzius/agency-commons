@@ -1,0 +1,13 @@
+---
+import { site } from '../site.config.mjs';
+interface Props { home?: boolean; hasPosts?: boolean; }
+const { home = false, hasPosts = false } = Astro.props;
+---
+<header class="site-header shell">
+  <a class="wordmark" href="/">{site.businessName}<span aria-hidden="true"> ✳</span></a>
+  <nav aria-label="Main navigation">
+    {home && <a href="#services">Our approach</a>}
+    {hasPosts && <a href="/blog/">Journal</a>}
+    <a href={home ? '#contact' : '/#contact'}>Get in touch <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>

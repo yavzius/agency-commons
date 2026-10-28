@@ -3,7 +3,7 @@ name: build-client-site
 description: Guide a non-engineer using the Agency Commons repository to build, publish, maintain, and market a local-business website through an agent. Use for starting or resuming a client site, setup, deployment, domains, forms, SEO/GEO, measurement, and optional advertising workflows in this repo.
 ---
 
-Read [AGENTS.md](../../../AGENTS.md), then [START.md](../../../START.md). Resume from the local `.agency-commons/` state if present; verify recorded access and deployment claims against actual tools and files.
+Read [AGENTS.md](../../../AGENTS.md), then [START.md](../../../START.md). In a controller, select or create the client through [the agency workflow](../../../docs/AGENCY.md), then load that site's own instructions before website commands. Resume from the local `.agency-commons/` state if present; verify recorded access and deployment claims against actual tools and files.
 
 Perform the technical work. Ask the person for business facts, needed preferences, account/consent actions, and concrete external decisions. Keep the initial additional-spend budget at $0. Teach small useful ideas as they arise; don't require coding lessons before a safe launch.
 
@@ -13,6 +13,7 @@ Read only the relevant runbook:
 
 - Operating system or shell differences: [computer setup](../../../docs/COMPUTERS.md).
 - Competitors, positioning, copy and page structure: [discovery](../../../docs/DISCOVERY.md) and [research-and-position](../research-and-position/SKILL.md).
+- Client materials, brand context and shared design decisions: [design workflow](../../../docs/DESIGN.md).
 - Design, components and responsive review: [frontend](../../../docs/FRONTEND.md) and [frontend-quality](../frontend-quality/SKILL.md).
 - First preview, dependency installation, Cloudflare connection or publication: [setup](../../../docs/SETUP.md).
 - Agent tool selection and authentication: [tools](../../../docs/TOOLS.md).

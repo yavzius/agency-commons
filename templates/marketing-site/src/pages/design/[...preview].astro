@@ -1,0 +1,55 @@
+---
+import { site } from '../../site.config.mjs';
+import Hero from '../../components/Hero.astro';
+import ActionLink from '../../components/ActionLink.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import '../../styles/global.css';
+// A local-only route: production has no paths to generate.
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { preview: undefined } }] : [];
+}
+const colors = ['surface', 'surface-soft', 'text', 'text-muted', 'action', 'accent', 'focus'];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Design review — {site.businessName}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <aside class="demo-notice">Local design review · {site.isDemo ? 'fictional example' : 'review draft'} · excluded from the production build</aside>
+    <SiteHeader home />
+    <main id="main">
+      <Hero />
+      <section id="services" class="shell section" aria-labelledby="components-title">
+        <div class="section-heading"><p class="eyebrow">Shared components</p><h2 id="components-title">Services and answers</h2></div>
+        <div class="cards">{site.services.map((service, index) => <ServiceCard {...service} number={index + 1} />)}</div>
+        <div class="design-answers">{site.faqs.map(faq => <Disclosure {...faq} />)}</div>
+      </section>
+      <section class="shell section" aria-labelledby="tokens-title">
+        <div class="section-heading"><p class="eyebrow">Shared styles</p><h2 id="tokens-title">Colors and reading</h2></div>
+        <ul class="design-colors">{colors.map(color => <li><span class="design-swatch" style={`background: var(--color-${color})`} aria-hidden="true"></span><code>{color}</code></li>)}</ul>
+        <div class="prose design-reading"><h3>Useful details, written clearly</h3><p>A good service page answers the customer's questions. Keep paragraphs readable, explain what happens next, and make <a href="/#contact">the next step</a> easy to find.</p><ul><li>Use real customer questions to shape content.</li><li>Support important claims with verified facts.</li></ul></div>
+      </section>
+      <section id="contact" class="contact shell" aria-labelledby="actions-title">
+        <p class="eyebrow">Interaction review</p><h2 id="actions-title">Follow the main action</h2>
+        <p>Use Tab to check visible focus, hover the action, and open a disclosure above. Review at phone and desktop widths. Form states are added when a real enquiry form is implemented.</p>
+        <ActionLink href="/#contact">Review the website contact section</ActionLink>
+      </section>
+    </main>
+    <SiteFooter />
+  </body>
+</html>
+<style>
+  .design-answers { max-width: var(--width-reading); margin-top: var(--space-xl); }
+  .design-colors { display: flex; flex-wrap: wrap; gap: var(--space-md); padding: 0; list-style: none; }
+  .design-colors li { display: grid; gap: var(--space-xs); }
+  .design-swatch { width: 6rem; height: 4rem; border: var(--border-width) solid var(--color-border); }
+  .design-reading { max-width: var(--width-reading); margin-top: var(--space-xl); }
+</style>

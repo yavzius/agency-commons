@@ -1,0 +1,18 @@
+---
+import { site } from '../site.config.mjs';
+import ActionLink from './ActionLink.astro';
+interface Props { titleId?: string; }
+const { titleId = 'hero-title' } = Astro.props;
+---
+<section class="hero shell" aria-labelledby={titleId}>
+  <div class="hero-copy">
+    <p class="eyebrow">{site.eyebrow}</p>
+    <h1 id={titleId}>{site.headline}</h1>
+    <p class="intro">{site.introduction}</p>
+    <ActionLink href="#contact">{site.ctaLabel}</ActionLink>
+  </div>
+  <div class="composition" aria-hidden="true">
+    <div class="arch"></div><div class="sun"></div><div class="plinth"></div>
+    <span class="composition-caption">Space to see things differently.</span>
+  </div>
+</section>
