@@ -16,7 +16,7 @@ The learner doesn't need to memorize commands or framework syntax. The useful sk
 
 | Stage | Outcome | Agent does | Person learns through a small decision or check |
 | --- | --- | --- | --- |
-| 1. Get ready | A working local project | Checks the app, folder access, Node/npm, dependencies, and preview | Identifies which app/folder contains their project and what a local preview means |
+| 1. Get ready | A working local project from a pasted repo link | Fetches a working copy; checks the chosen agent, folder access, Node/npm, dependencies, and preview | Identifies which app/folder contains their project and what a local preview means |
 | 2. Shape the brief | A clear audience, offer, and primary action | Asks focused questions and saves a short brief | Chooses an action appropriate to the business and explains what a visitor needs before taking it |
 | 2a. Research and position | An original message and page plan informed by relevant competitors | Vets direct/close competitors, records evidence, proposes copy and section order | Distinguishes an observed pattern from proven conversion success; explains why a first-screen message fits the customer |
 | 3. Make a first draft | A credible responsive page | Builds copy and layout, applies supplied brand assets, checks mobile | Distinguishes a useful specific claim from invented or vague marketing copy |

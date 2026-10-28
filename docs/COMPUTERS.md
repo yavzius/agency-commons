@@ -4,9 +4,13 @@ The agent checks the operating system, processor architecture, shell, and existi
 
 ## Before the agent can help locally
 
-1. Install the appropriate app below and sign in with the existing ChatGPT subscription.
-2. Download and extract this repository. Open the extracted folder as a local project, rather than opening the ZIP or just a browser chat.
-3. Paste the prompt from the README. The agent can now inspect the folder and guide missing dependencies. Approve installers or sign-ins when needed; the agent handles the subsequent commands.
+If the person already uses a coding agent, start there: paste `https://github.com/yavzius/agency-commons`. The agent follows [START.md](../START.md), fetches its own working copy, and handles dependencies. Don't make them install a second agent or manually download/unzip the repo.
+
+If they do not yet have an agent:
+
+1. Install an appropriate app below and sign in with the existing ChatGPT subscription. These are the documented Codex paths; another capable coding agent can use the same repo instructions and its own existing access.
+2. Open/create an empty project folder only if the app requires it before starting a conversation.
+3. Paste the repo link. The agent fetches and prepares the working copy. Approve folder access, installers or sign-ins when needed; the agent handles the technical commands.
 
 | Computer | Starting route | Details for the agent |
 | --- | --- | --- |
@@ -36,7 +40,7 @@ npm install -g @openai/codex
 codex
 ```
 
-Run `codex` from the extracted project folder, choose ChatGPT sign-in, and give it the README's starting prompt. On Windows, the agent can use `npm.cmd` where needed. If global installation is denied, follow the official CLI's supported installer route for that OS; don't prescribe `sudo npm` or a security bypass. The CLI is the agent interface, so the person still describes outcomes in plain language rather than learning programming first.
+Run `codex` from an empty project folder or another appropriate workspace, choose ChatGPT sign-in, and paste the repository link. The agent fetches the starter and continues from START.md. On Windows, the agent can use `npm.cmd` where needed. If global installation is denied, follow the official CLI's supported installer route for that OS; don't prescribe `sudo npm` or a security bypass. The CLI is the agent interface, so the person still describes outcomes in plain language rather than learning programming first.
 
 ## Keep one environment consistent
 

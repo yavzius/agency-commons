@@ -1,1 +1,1 @@
-Read and follow `AGENTS.md` for this repository. Start with `START.md` and resume from local progress when available.
+Read and follow `AGENTS.md` for this repository. Start with `START.md` and resume from local progress when available. If the person shared the repository link to start using it, follow the link-onboarding route in `START.md`: fetch the working copy, check dependencies and continue toward a preview. Use this agent's available tools; do not require a switch to Codex or another subscription.

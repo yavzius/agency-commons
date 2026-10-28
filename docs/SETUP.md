@@ -4,9 +4,11 @@ For the agent: perform the technical steps. Give the person only the next action
 
 ## 1. Open the project
 
+The primary entry is a pasted repository link. Follow [START.md](../START.md) to fetch a working copy for the person. Reuse their existing coding agent with available workspace/command tools; this document's Codex instructions are the default fallback, not a requirement to switch agents. Do not require a manual ZIP download or Git lesson before starting.
+
 Start with [COMPUTERS.md](COMPUTERS.md) for Windows, macOS and Linux routes, dependency differences, and a CLI fallback. Do not assume this person has a Mac or a Unix shell.
 
-Use the [official desktop download](https://developers.openai.com/codex/app/) for the person's operating system. Current OpenAI documentation routes to the ChatGPT desktop app, which includes a Codex surface. Sign in with ChatGPT and open the unzipped project folder. Don't assume a browser-only chat has local filesystem access.
+If Codex is needed, use the [official desktop download](https://developers.openai.com/codex/app/) for the person's operating system. Current OpenAI documentation routes to the ChatGPT desktop app, which includes a Codex surface. Sign in with ChatGPT, select an appropriate workspace if required, and let the agent retrieve the starter. Don't assume a browser-only chat has local filesystem access.
 
 Use subscription sign-in. API-key authentication is separately billed. If included usage is exhausted, save progress and wait or continue a non-AI task; don't buy credits automatically. See [authentication](https://learn.chatgpt.com/docs/auth) and [plan access](https://learn.chatgpt.com/docs/pricing).
 

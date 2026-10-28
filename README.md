@@ -2,28 +2,39 @@
 
 Run a small local-business web agency by talking to an agent.
 
+**Start by pasting this link into your coding agent:**
+
+```text
+https://github.com/yavzius/agency-commons
+```
+
+Use Codex, Claude Code, or another coding agent with workspace access. The agent gets the starter, checks your setup, and guides you from there. You don't need to download a ZIP, unzip files, clone a repository, or install every tool yourself first.
+
+**For the agent receiving this link:** if the person is here to start using Agency Commons, read [START.md](START.md), beginning with “Arriving from the repo link.” Prepare a working copy and continue onboarding; don't stop at summarizing the repository. Follow a specific review, research or maintenance request instead when that is what the person asked. If you can't fetch relative links, the entry point is [raw START.md](https://raw.githubusercontent.com/yavzius/agency-commons/main/START.md).
+
 An open-source toolkit for people who understand a business but don't write code. Your agent handles files, dependencies, design, testing, deployment, and connected marketing tools. You own the accounts, choose the services, review the result, and learn how to manage it along the way.
 
 Start with marketing websites for small local businesses. Continue into domains, business email, enquiries, blogs, SEO/GEO, analytics, and optional advertising and background agents. There is no Agency Commons account or hosted platform to subscribe to.
 
-**Start with your existing ChatGPT subscription. Use free hosting. Get a working site live before adding more tools.**
+**Use your existing coding agent. Start with free hosting and get a working site live before adding more tools.** The documented default uses Codex with an existing ChatGPT subscription; another agent has its own access and usage limits.
 
 ## Start here
 
-1. Follow the [Windows, macOS, or Linux setup path](docs/COMPUTERS.md), install the appropriate app with Codex, and sign in with your ChatGPT account. The current download may be branded ChatGPT; choose Codex and open a local project folder. A CLI fallback is documented when the desktop app isn't available.
-2. [Download this repo](https://github.com/yavzius/agency-commons/archive/refs/heads/main.zip), unzip it, and open the folder in the app. You don't need Git or a GitHub account to download it.
-3. Send this message:
+Paste the repo link into the coding agent you already use. If it asks what you'd like to do, say:
 
-   > Read START.md and guide me from here to a live website for a small local business. I'm not a developer. Handle the technical work through MCP, CLI, and API tools where possible. Help me with accounts and connections one step at a time, and keep additional spending at $0. Ask me only for decisions or actions you need from me.
+> Help me start with this. I'm not a developer. Set it up and guide me to a live website for a small local business. Keep additional spending at $0 and handle the technical steps for me.
 
-That's enough to begin. The agent checks your computer and helps install anything missing. It guides you through Cloudflare sign-in and connection when needed. You complete browser sign-ins and permission screens yourself.
+The agent fetches a working copy, checks its working environment, installs project dependencies, and shows a preview. It guides you through Cloudflare sign-in and connection when needed. You supply business facts, review the result, and complete account sign-ins, permissions and OS approvals.
 
-If you already have a project open, make sure this folder is the active project. If the agent cannot read files, tell it which step failed; this workflow needs local file and command access.
+If the app needs a workspace selected first, open or create an empty project folder and paste the same link. The agent must preserve unrelated projects and ask for a destination only when needed. You do not need a GitHub account just to fetch this public starter.
+
+If you don't have a coding agent installed, use the [Windows, macOS, or Linux setup path](docs/COMPUTERS.md). A chat that can read links but cannot write files or run commands can explain the next setup step; it cannot build or deploy the site by itself. The repository provides a shared workflow, not a guarantee that every agent has identical tools or automatically follows a bare URL.
 
 ## What happens next
 
 | You | Your agent |
 | --- | --- |
+| Paste the repo link and grant workspace access when needed | Fetches an isolated working copy, reads the instructions and prepares the environment |
 | Describe the business and desired visitor action | Turns that into a short brief and builds a first draft |
 | Share business facts and review the proposed direction | Researches relevant competitors, writes the copy and plans the page structure |
 | Review the page on your phone and computer | Fixes the layout, copy, accessibility, and broken links |

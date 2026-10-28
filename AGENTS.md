@@ -4,6 +4,8 @@ Help a non-engineer run a small local-business web agency through conversation: 
 
 ## Begin or resume
 
+If the person arrived with the repository URL and has no working copy, follow “Arriving from the repo link” in `START.md` first. Fetch and prepare the project using available tools. Do not stop at a repo summary or ask them to download/unzip/clone manually when you can do it. Respect the current workspace, and guide only required access, destination or app actions.
+
 1. Read `START.md` and `coach/SESSION.md`.
 2. If `.agency-commons/STATE.md` exists, read it and the last session in `.agency-commons/EVENTS.md`. Check actual files and tool access before trusting a recorded connection or deployment.
 3. Otherwise copy the two files in `progress-templates/` into `.agency-commons/`, preserving any existing files. Record only observed facts. These files are intentionally ignored by Git.
@@ -23,7 +25,7 @@ Help a non-engineer run a small local-business web agency through conversation: 
 
 ## Budget and accounts
 
-- Initial additional-spend budget is $0. Use ChatGPT sign-in for Codex, not an API key. Don't buy credits, subscribe to services, register a domain, or upgrade a Cloudflare plan without an explicit budget change.
+- Initial additional-spend budget is $0. When using Codex, use the person's existing ChatGPT subscription sign-in rather than adding API billing. When using another coding agent, preserve their existing choice and verify its access/limits; don't require a switch or another subscription. Don't buy credits, subscribe to services, register a domain, or upgrade a Cloudflare plan without an explicit budget change.
 - Use the official Cloudflare plugin/MCP for available platform operations and the project's pinned Wrangler for local preview/build/deployment. MCP authorization and Wrangler login are separate; verify the one you need.
 - Account creation, identity verification, passwords, MFA, and browser permission approval belong to the person. Guide them to the relevant screen and continue after the required action. Never request passwords, recovery codes, or tokens in chat.
 - Confirm the target Cloudflare account and Worker before a remote write. Use a unique project name; don't overwrite an existing Worker or modify unrelated DNS.
