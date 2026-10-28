@@ -18,7 +18,7 @@ The controller has no third-party runtime dependencies. Node/npm are needed to r
 
 The agent should choose sensible folders in the person's persistent workspace and handle commands. Don't ask the person to manage path arguments. If a command fails, inspect the reported error and existing state before retrying. An interrupted creation can leave a lock at `.agency-commons/create.lock`; verify that no creation is running and reconcile the record/site/index before removing a stale lock. Do not recreate or overwrite an existing client as recovery.
 
-Initialize the agency's own Git history. Before pushing actual client records, verify the remote owner and **private** visibility using the connected GitHub tool or CLI. A folder named private is not evidence. Check staged files for secrets/private originals. Initialize each site separately, normally private unless the owner chooses otherwise. The generated site has its own CI workflow. GitHub's template button copies the entire public toolkit; the scaffolder creates the site-only project.
+Initialize the agency's own Git history. Before pushing actual client records, verify the remote owner and **private** visibility using the connected GitHub tool or CLI. A folder named private is not evidence. Check staged files for secrets/private originals. Initialize each site separately, normally private unless the owner chooses otherwise. The generated site includes an optional manual check workflow. No GitHub Actions run is triggered by pushes or pull requests; run checks locally by default. GitHub's template button copies the entire public toolkit; the scaffolder creates the site-only project.
 
 ## Select and resume a client
 

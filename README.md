@@ -98,7 +98,7 @@ npm test
 npm run check:generated
 ```
 
-`check:generated` creates an isolated agency and client site, installs that site's locked packages, runs its tests and builds it. CI runs this on Windows, macOS and Linux. For template development, use `npm run template:install`, `template:test` and `template:build`.
+`check:generated` creates an isolated agency and client site, installs that site's locked packages, runs its tests and builds it. Checks run locally. An optional manually triggered workflow covers Windows, macOS and Linux. For template development, use `npm run template:install`, `template:test` and `template:build`.
 
 The agent creates workspaces using `npm run agency -- init <new-agency-folder>` and, from that workspace, `npm run agency -- client <client-id> --site <new-site-folder>`. These commands never create remote repositories, connect accounts or deploy. See [the agency guide](docs/AGENCY.md).
 
