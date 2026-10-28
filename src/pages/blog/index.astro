@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { visiblePosts, isPublished, postPath } from '../../lib/blog.mjs';
+const posts = visiblePosts(await getCollection('blog'), { preview: import.meta.env.DEV });
+---
+<ArticleLayout title="Journal" description="Useful answers, ideas, and updates from our team." noindex={import.meta.env.DEV || posts.length === 0}>
+  <p class="eyebrow">The journal</p>
+  <h1>Ideas worth sharing.</h1>
+  {import.meta.env.DEV && <p class="draft-notice">Local preview includes drafts. Drafts and future posts are excluded from production builds.</p>}
+  {posts.length ? <ul class="post-list">{posts.map(post => <li>
+    {!isPublished(post) && <p class="eyebrow">Unpublished preview</p>}
+    <h2><a href={postPath(post)}>{post.data.title}</a></h2>
+    <p>{post.data.description}</p>
+  </li>)}</ul> : <p>Our first article is on its way.</p>}
+</ArticleLayout>

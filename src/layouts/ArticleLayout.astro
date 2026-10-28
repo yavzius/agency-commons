@@ -1,0 +1,31 @@
+---
+import { site } from '../site.config.mjs';
+import '../styles/global.css';
+const { title, description, noindex = false, article = false } = Astro.props;
+const canonical = site.url ? new URL(Astro.url.pathname, site.url).href : null;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — {site.businessName}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex || site.isDemo || !site.allowIndexing ? 'noindex, nofollow' : 'index, follow'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {site.isDemo && <aside class="demo-notice">Practice website · {site.businessName} is a fictional business</aside>}
+    <header class="site-header shell">
+      <a class="wordmark" href="/">{site.businessName}<span aria-hidden="true"> ✳</span></a>
+      <nav aria-label="Main navigation"><a href="/blog/">Journal</a><a href="/#contact">Get in touch ↗</a></nav>
+    </header>
+    <main id="main" class="shell article-shell section"><slot /></main>
+    <footer class="shell site-footer"><span>© {new Date().getFullYear()} {site.businessName}</span><a href="/">Home</a></footer>
+  </body>
+</html>

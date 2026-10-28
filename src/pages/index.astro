@@ -1,0 +1,70 @@
+---
+import { site } from '../site.config.mjs';
+import { getCollection } from 'astro:content';
+import { visiblePosts } from '../lib/blog.mjs';
+import '../styles/global.css';
+const emailHref = site.contactEmail ? `mailto:${site.contactEmail}` : null;
+const hasPosts = visiblePosts(await getCollection('blog'), { preview: import.meta.env.DEV }).length > 0;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.businessName} — {site.headline}</title>
+    <meta name="description" content={site.description} />
+    <meta name="robots" content={site.isDemo || !site.allowIndexing ? 'noindex, nofollow' : 'index, follow'} />
+    <meta property="og:title" content={site.businessName} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:type" content="website" />
+    {site.googleSiteVerification && <meta name="google-site-verification" content={site.googleSiteVerification} />}
+    {site.url && <link rel="canonical" href={site.url} />}
+    {site.url && <meta property="og:url" content={site.url} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {site.isDemo && <aside class="demo-notice">Practice website · {site.businessName} is a fictional business</aside>}
+    <header class="site-header shell">
+      <a class="wordmark" href="#">{site.businessName}<span aria-hidden="true"> ✳</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#services">Our approach</a>
+        {hasPosts && <a href="/blog/">Journal</a>}
+        <a href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">{site.eyebrow}</p>
+          <h1 id="hero-title">{site.headline}</h1>
+          <p class="intro">{site.introduction}</p>
+          <a class="button" href="#contact">{site.ctaLabel} <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="composition" aria-hidden="true">
+          <div class="arch"></div><div class="sun"></div><div class="plinth"></div>
+          <span class="composition-caption">Space to see things differently.</span>
+        </div>
+      </section>
+      <section id="services" class="section shell" aria-labelledby="services-title">
+        <div class="section-heading"><p class="eyebrow">Our approach</p><h2 id="services-title">Good ideas, made practical.</h2></div>
+        <div class="cards">
+          {site.services.map((service, index) => <article class="card"><span class="number">0{index + 1}</span><h3>{service.title}</h3><p>{service.text}</p></article>)}
+        </div>
+      </section>
+      <section class="process-band" aria-labelledby="process-title">
+        <div class="shell section"><div class="section-heading"><p class="eyebrow">Working together</p><h2 id="process-title">A little clarity goes a long way.</h2></div>
+          <ol class="steps">{site.process.map(step => <li><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+        </div>
+      </section>
+      <section class="section shell faq-section" aria-labelledby="faq-title">
+        <div><p class="eyebrow">Before we begin</p><h2 id="faq-title">A few useful answers.</h2></div>
+        <div class="faq-list">{site.faqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+      <section id="contact" class="contact shell" aria-labelledby="contact-title">
+        <p class="eyebrow">Your next chapter</p><h2 id="contact-title">{site.contactHeading}</h2><p>{site.contactText}</p>
+        {emailHref ? <a class="button" href={emailHref}>{site.ctaLabel} <span aria-hidden="true">↗</span></a> : <p class="contact-placeholder">Demo only — enquiries are not connected yet.</p>}
+      </section>
+    </main>
+    <footer class="shell site-footer"><span>© {new Date().getFullYear()} {site.businessName}</span><a href="#main">Back to top ↑</a></footer>
+  </body>
+</html>
