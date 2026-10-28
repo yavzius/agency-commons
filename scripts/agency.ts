@@ -1,4 +1,5 @@
-import { appendFileSync, cpSync, existsSync, lstatSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { appendFileSync, cpSync, existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, realpathSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import type { WriteFileOptions } from 'node:fs';
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -6,16 +7,18 @@ import { execFileSync } from 'node:child_process';
 export const sourceRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const sourceURL = 'https://github.com/yavzius/agency-commons';
 const ignored = new Set(['node_modules', 'dist', '.astro', '.wrangler', '.git', '.agency-commons', 'coverage']);
-const bundle = ['package.json', 'package-lock.json', '.gitignore', 'AGENTS.md', 'CLAUDE.md', 'START.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'docs', 'scripts', 'tests', 'templates', 'coach', 'progress-templates', '.agents', '.github'];
+const bundle = ['package.json', 'package-lock.json', 'tsconfig.json', '.gitignore', 'AGENTS.md', 'CLAUDE.md', 'START.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'docs', 'scripts', 'tests', 'templates', 'coach', 'progress-templates', '.agents', '.github'];
 
-const readJSON = path => JSON.parse(readFileSync(path, 'utf8'));
-const writeJSON = (path, value, options) => writeFileSync(path, JSON.stringify(value, null, 2) + '\n', options);
-function inside(parent, child) {
+type Provenance = { repository: string; revision: string | null; version: string };
+type WorkspaceMarker = { role: string; source: Provenance };
+const readJSON = <T>(path: string): T => JSON.parse(readFileSync(path, 'utf8'));
+const writeJSON = (path: string, value: unknown, options?: WriteFileOptions) => writeFileSync(path, JSON.stringify(value, null, 2) + '\n', options);
+function inside(parent: string, child: string) {
   const rel = relative(parent, child);
   return rel === '' || (!rel.startsWith(`..${sep}`) && rel !== '..' && !isAbsolute(rel));
 }
 
-function destination(input, root) {
+function destination(input: string, root: string) {
   if (!input) throw new Error('Choose a new destination folder.');
   const requested = resolve(input);
   // Require an existing parent and resolve symlinks before comparing locations.
@@ -25,27 +28,27 @@ function destination(input, root) {
   return target;
 }
 
-function copy(source, target) {
+function copy(source: string, target: string) {
   cpSync(source, target, { recursive: true, force: false, errorOnExist: true, filter: path => {
-    const parts = relative(source, path).split(sep);
+    const parts = [basename(source), ...relative(source, path).split(sep)];
     if (parts.some(part => ignored.has(part) || part === '.env' || part.startsWith('.env.') || part === '.dev.vars' || part.startsWith('.dev.vars.') || part.endsWith('.log'))) return false;
     if (lstatSync(path).isSymbolicLink()) throw new Error('Template symlinks are not supported.');
     return true;
   } });
 }
 
-function provenance(root) {
+function provenance(root: string): Provenance {
   const marker = join(root, '.agency-workspace.json');
-  if (existsSync(marker)) return readJSON(marker).source;
-  let revision = null;
+  if (existsSync(marker)) return readJSON<WorkspaceMarker>(marker).source;
+  let revision: string | null = null;
   try {
     const top = execFileSync('git', ['-C', root, 'rev-parse', '--show-toplevel'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
     if (realpathSync(top) === realpathSync(root)) revision = execFileSync('git', ['-C', root, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
   } catch { /* An archive need not have Git history. */ }
-  return { repository: sourceURL, revision, version: readJSON(join(root, 'package.json')).version };
+  return { repository: sourceURL, revision, version: readJSON<{ version: string }>(join(root, 'package.json')).version };
 }
 
-export function initAgency(input, root = sourceRoot) {
+export function initAgency(input: string, root = sourceRoot) {
   const target = destination(input, root);
   mkdirSync(target); // Exclusive: never merge a new workspace into an existing folder.
   try {
@@ -60,7 +63,7 @@ export function initAgency(input, root = sourceRoot) {
   }
 }
 
-function localDirectory(root, name) {
+function localDirectory(root: string, name: string) {
   const path = join(root, name);
   const info = lstatSync(path, { throwIfNoEntry: false });
   if (info && (info.isSymbolicLink() || !info.isDirectory())) throw new Error(`${name} must be a real directory in this workspace.`);
@@ -68,10 +71,10 @@ function localDirectory(root, name) {
   return path;
 }
 
-export function addClient(id, input, root = sourceRoot) {
+export function addClient(id: string, input: string, root = sourceRoot) {
   if (!/^[a-z0-9](?:[a-z0-9-]{0,46}[a-z0-9])?$/.test(id ?? '') || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i.test(id)) throw new Error('Use a short client ID with lowercase letters, numbers and internal hyphens.');
   const marker = join(root, '.agency-workspace.json');
-  if (!existsSync(marker) || readJSON(marker).role !== 'agency') throw new Error('Create an agency workspace first; client records do not belong in the public toolkit.');
+  if (!existsSync(marker) || readJSON<WorkspaceMarker>(marker).role !== 'agency') throw new Error('Create an agency workspace first; client records do not belong in the public toolkit.');
   const target = destination(input, root);
   const clients = localDirectory(root, 'clients');
   const record = join(clients, id);
@@ -88,12 +91,15 @@ export function addClient(id, input, root = sourceRoot) {
     const index = readFileSync(indexPath, 'utf8');
     const pathsFile = join(local, 'paths.json');
     if (lstatSync(pathsFile, { throwIfNoEntry: false })?.isSymbolicLink()) throw new Error('Local paths file must not be a symlink.');
-    const paths = existsSync(pathsFile) ? readJSON(pathsFile) : {};
+    const paths = existsSync(pathsFile) ? readJSON<Record<string, string>>(pathsFile) : {};
     if (Object.hasOwn(paths, id)) throw new Error('Client path is already registered; inspect existing state.');
     mkdirSync(target); ownsSite = true;
     mkdirSync(record); ownsRecord = true;
     // Copy site files only; agency records and Git history never enter a site.
-    copy(join(root, 'templates/marketing-site'), target);
+    const template = join(root, 'templates/marketing-site');
+    // Copy children into the directory we reserved; cp errorOnExist also rejects
+    // existing directories on newer Node releases. Never relax overwrite checks.
+    for (const item of readdirSync(template)) copy(join(template, item), join(target, item));
     for (const item of ['docs', 'coach', 'progress-templates', '.agents', 'LICENSE', 'THIRD_PARTY_NOTICES.md']) copy(join(root, item), join(target, item));
     for (const item of ['CLIENT.md', 'BRIEF.md', 'WORK.md', 'DECISIONS.md', 'REPORT.md', 'MATERIALS.md']) {
       writeFileSync(join(record, item), readFileSync(join(root, 'templates/client-record', item), 'utf8').replaceAll('{{CLIENT_ID}}', id));
@@ -127,5 +133,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     if (command === 'init' && value && !flag) console.log(JSON.stringify(initAgency(value), null, 2));
     else if (command === 'client' && value && flag === '--site' && path && !extra.length) console.log(JSON.stringify(addClient(value, path), null, 2));
     else { console.log('Agent commands:\n  npm run agency -- init <new-agency-folder>\n  npm run agency -- client <client-id> --site <new-site-folder>\nRun client from an initialized agency workspace. Both destinations must have an existing parent.'); process.exitCode = command ? 1 : 0; }
-  } catch (error) { console.error(error.message); process.exitCode = 1; }
+  } catch (error) { console.error(error instanceof Error ? error.message : String(error)); process.exitCode = 1; }
 }

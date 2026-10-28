@@ -1,6 +1,6 @@
-import { site } from '../site.config.mjs';
+import { site } from '../site.config.ts';
 import { getCollection } from 'astro:content';
-import { visiblePosts, postPath, escapeXML } from '../lib/blog.mjs';
+import { visiblePosts, postPath, escapeXML } from '../lib/blog.ts';
 
 export async function GET() {
   const posts = visiblePosts(await getCollection('blog'));

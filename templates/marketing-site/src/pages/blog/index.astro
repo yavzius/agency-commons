@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { visiblePosts, isPublished, postPath } from '../../lib/blog.mjs';
+import { visiblePosts, isPublished, postPath } from '../../lib/blog.ts';
 const posts = visiblePosts(await getCollection('blog'), { preview: import.meta.env.DEV });
 ---
 <ArticleLayout title="Journal" description="Useful answers, ideas, and updates from our team." noindex={import.meta.env.DEV || posts.length === 0}>

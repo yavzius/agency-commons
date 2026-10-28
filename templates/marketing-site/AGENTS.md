@@ -10,7 +10,7 @@ Keep additional spending at $0 unless explicitly authorized. Verify account owne
 
 Use confirmed business facts. Keep fictional practice content labeled. Follow docs/FORMS.md for enquiries and docs/GROWTH.md for search, measurement and ads. Distinguish a click, stored enquiry and delivered message. Keep credentials and customer records out of source control.
 
-Before publication, run npm test, npm run build and npm run ready; inspect desktop/mobile rendering and the main action. Follow the user's applicable publishing authorization, then verify the actual live URL. Save a recovery checkpoint; code rollback does not restore stored enquiries.
+Before publication, run npm run check, npm test, npm run build and npm run ready; inspect desktop/mobile rendering and the main action. Follow the user's applicable publishing authorization, then verify the actual live URL. Save a recovery checkpoint; code rollback does not restore stored enquiries.
 
 Use .agency-commons/STATE.md and EVENTS.md for ignored local continuity when useful. Durable task status and approval evidence belong in the private agency workspace. Report the changed version, actual checks and next action back to that workspace. If it isn't accessible, report the handoff information to the person rather than claiming its records were updated.
 

@@ -1,18 +1,19 @@
 import test from 'node:test';
+import type { TestContext } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, renameSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { initAgency, addClient, sourceRoot } from '../scripts/agency.mjs';
+import { initAgency, addClient, sourceRoot } from '../scripts/agency.ts';
 
-function fixture(t) {
+function fixture(t: TestContext) {
   const base = realpathSync(mkdtempSync(join(tmpdir(), 'agency-commons-test-')));
   t.after(() => rmSync(base, { recursive: true, force: true }));
   const agency = join(base, 'My Agency');
   initAgency(agency);
   return { base, agency, site: join(base, 'Acme Website') };
 }
-const json = path => JSON.parse(readFileSync(path, 'utf8'));
+const json = (path: string): Record<string, unknown> => JSON.parse(readFileSync(path, 'utf8'));
 
 test('an agency can create independent client sites with maintenance context', t => {
   const { agency, site, base } = fixture(t);
@@ -26,7 +27,7 @@ test('an agency can create independent client sites with maintenance context', t
   for (const file of ['AGENTS.md', 'BRAND.md', 'DESIGN.md', 'docs/AGENCY.md', 'docs/DESIGN.md', '.github/workflows/check.yml', '.agents/skills/frontend-design/LICENSE.txt', 'src/styles/tokens.css']) {
     assert.ok(existsSync(join(site, file)), file);
   }
-  for (const item of ['clients', '.git', 'node_modules', 'dist', '.agency-commons', 'scripts/agency.mjs']) assert.equal(existsSync(join(site, item)), false, item);
+  for (const item of ['clients', '.git', 'node_modules', 'dist', '.agency-commons', 'scripts/agency.ts']) assert.equal(existsSync(join(site, item)), false, item);
   assert.ok(existsSync(join(first.record, 'WORK.md')));
   writeFileSync(join(site, 'BRAND.md'), 'Acme-specific content');
   assert.notEqual(readFileSync(join(second.site, 'BRAND.md'), 'utf8'), 'Acme-specific content');
@@ -90,7 +91,7 @@ test('template symlinks cannot import unrelated files', t => {
   const outside = join(base, 'outside.txt');
   writeFileSync(outside, 'Private outside content');
   try { symlinkSync(outside, join(agency, 'templates/marketing-site/leak.txt')); }
-  catch (error) { if (error.code === 'EPERM') return t.skip('Symlink creation is unavailable on this runner'); throw error; }
+  catch (error) { if (error instanceof Error && 'code' in error && error.code === 'EPERM') return t.skip('Symlink creation is unavailable on this runner'); throw error; }
   assert.throws(() => addClient('acme', site, agency), /symlinks/);
   assert.equal(existsSync(site), false);
   assert.equal(readFileSync(outside, 'utf8'), 'Private outside content');

@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { visiblePosts, isPublished } from '../../lib/blog.mjs';
+import { visiblePosts, isPublished } from '../../lib/blog.ts';
 
 export async function getStaticPaths() {
   return visiblePosts(await getCollection('blog'), { preview: import.meta.env.DEV })
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const unpublished = !isPublished(post);
-const formatDate = date => new Intl.DateTimeFormat('en', { dateStyle: 'long', timeZone: 'UTC' }).format(date);
+const formatDate = (date: Date) => new Intl.DateTimeFormat('en', { dateStyle: 'long', timeZone: 'UTC' }).format(date);
 ---
 <ArticleLayout title={post.data.title} description={post.data.description} noindex={import.meta.env.DEV || unpublished} article>
   {unpublished && <p class="draft-notice">Unpublished preview · this post will not appear in a production build.</p>}

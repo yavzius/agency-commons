@@ -3,7 +3,7 @@ import { existsSync, mkdtempSync, realpathSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { initAgency, addClient } from './agency.mjs';
+import { initAgency, addClient } from './agency.ts';
 
 // Exercise the delivered site, not a build that accidentally relies on the toolkit.
 if (!process.env.npm_execpath) throw new Error('Run this check with npm run check:generated.');
@@ -12,7 +12,7 @@ try {
   const agency = join(base, 'Agency');
   initAgency(agency);
   const { site } = addClient('sample', join(base, 'Client Site'), agency);
-  for (const args of [['ci'], ['run', 'doctor'], ['test'], ['run', 'build']]) {
+  for (const args of [['ci'], ['run', 'doctor'], ['run', 'check'], ['test'], ['run', 'build']]) {
     execFileSync(process.execPath, [process.env.npm_execpath, ...args], { cwd: site, stdio: 'inherit' });
   }
   assert.ok(existsSync(join(site, 'dist/index.html')));

@@ -1,4 +1,4 @@
-import { site } from '../site.config.mjs';
+import { site } from '../site.config.ts';
 
 export function GET() {
   // Allow crawling so crawlers can see the page's noindex directive on drafts.

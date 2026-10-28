@@ -60,7 +60,7 @@ If MCP is temporarily unavailable but authenticated Wrangler can do the job, con
 
 ## 4. Prepare the first site
 
-Use [DESIGN.md](DESIGN.md) to gather materials, establish the message and review a representative design. Update `BRAND.md` and the site's `DESIGN.md`, then implement the agreed facts in `src/site.config.mjs`, design values in `src/styles/tokens.css` and reusable patterns in `src/components/`. Review the homepage and local `/design/` route. The sample is fictional and visibly labeled. For a real business, replace the sample identity, supply a working contact address, and set `isDemo: false`.
+Use [DESIGN.md](DESIGN.md) to gather materials, establish the message and review a representative design. Update `BRAND.md` and the site's `DESIGN.md`, then implement the agreed facts in `src/site.config.ts`, design values in `src/styles/tokens.css` and reusable patterns in `src/components/`. Review the homepage and local `/design/` route. The sample is fictional and visibly labeled. For a real business, replace the sample identity, supply a working contact address, and set `isDemo: false`.
 
 Choose a unique Worker name in `wrangler.jsonc` after checking the account for a collision. Don't overwrite an existing project. This file is deliberately valid JSON, even though Wrangler permits comments in `.jsonc` files; the readiness script reads it as JSON.
 

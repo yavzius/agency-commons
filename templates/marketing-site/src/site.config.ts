@@ -1,5 +1,26 @@
+export interface ServiceContent { title: string; text: string; }
+export interface FAQContent { question: string; answer: string; }
+export interface SiteConfig {
+  isDemo: boolean;
+  allowIndexing: boolean;
+  googleSiteVerification: string;
+  url: string;
+  businessName: string;
+  description: string;
+  eyebrow: string;
+  headline: string;
+  introduction: string;
+  ctaLabel: string;
+  contactEmail: string;
+  contactHeading: string;
+  contactText: string;
+  services: ServiceContent[];
+  process: ServiceContent[];
+  faqs: FAQContent[];
+}
+
 // The agent updates this from your brief. No credentials belong in this file.
-export const site = {
+export const site: SiteConfig = {
   isDemo: true,
   allowIndexing: false,
   googleSiteVerification: '',

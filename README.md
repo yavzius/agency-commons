@@ -93,16 +93,20 @@ Use the private workspace to manage clients and a separate repository for each w
 The root is the controller. The website starter lives in `templates/marketing-site/`.
 
 ```sh
+npm ci
 npm run doctor
+npm run check
 npm test
 npm run check:generated
 ```
 
-`check:generated` creates an isolated agency and client site, installs that site's locked packages, runs its tests and builds it. Checks run locally. An optional manually triggered workflow covers Windows, macOS and Linux. For template development, use `npm run template:install`, `template:test` and `template:build`.
+`check:generated` creates an isolated agency and client site, installs that site's locked packages, checks its types, runs its tests and builds it. Checks run locally. An optional manually triggered workflow covers Windows, macOS and Linux. For template development, use `npm run template:install`, `template:check`, `template:test` and `template:build`.
+
+Authored code uses TypeScript with strict checks. The supported Node version runs the controller scripts directly; no separate TypeScript runtime is needed. Run `npm run check` in either project to check types, including Astro components in client sites.
 
 The agent creates workspaces using `npm run agency -- init <new-agency-folder>` and, from that workspace, `npm run agency -- client <client-id> --site <new-site-folder>`. These commands never create remote repositories, connect accounts or deploy. See [the agency guide](docs/AGENCY.md).
 
-Inside a generated site, `npm run dev` starts the website and local `/design/` review. `npm run build` produces the static site without internal review pages. `npm run deploy` runs readiness, build and Wrangler; it requires verified Cloudflare access and a personalized Worker name. See [site setup](docs/SETUP.md).
+Inside a generated site, `npm run dev` starts the website and local `/design/` review. `npm run build` produces the static site without internal review pages. `npm run deploy` runs type checks, tests, readiness, build and Wrangler; it requires verified Cloudflare access and a personalized Worker name. See [site setup](docs/SETUP.md).
 
 The starter uses Astro and Markdown, with no database for page content. Add D1 for stored enquiries when needed. The static output can move to another compatible host. Provider accounts, limits and permissions remain separate from the open-source toolkit.
 

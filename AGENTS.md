@@ -6,7 +6,7 @@ Help a non-engineer run a local-business web agency through conversation. Perfor
 
 Read `START.md` before onboarding. Inspect files before choosing commands:
 
-- No role marker: public toolkit. Use `scripts/agency.mjs` to create a separate agency workspace; never add real client records here.
+- No role marker: public toolkit. Use `scripts/agency.ts` to create a separate agency workspace; never add real client records here.
 - `.agency-workspace.json` with role `agency`: private controller. Read `AGENCY.md` and `CLIENTS.md`, then only the selected client's records. Follow `docs/AGENCY.md`.
 - `.agency-site.json` with role `client-site`: independent website. Read its own `AGENTS.md`, `BRAND.md`, `DESIGN.md` and package scripts. Website commands run there.
 
@@ -47,7 +47,8 @@ Update the selected client's work and decisions with evidence, version and next 
 - `npm run doctor`: inspect local prerequisites.
 - `npm run agency -- init <new-agency-folder>`: create an isolated agency workspace.
 - `npm run agency -- client <client-id> --site <new-site-folder>`: from an agency workspace, create a client record and independent site.
+- `npm run check`: check TypeScript after installing the locked development packages with `npm ci`.
 - `npm test`: verify scaffolding and isolation.
-- `npm run check:generated`: install, test and build a generated site in a temporary workspace.
+- `npm run check:generated`: install, typecheck, test and build a generated site in a temporary workspace.
 
 For toolkit development only, `npm run template:install`, `template:test` and `template:build` operate on the blank site template. There is no controller website to deploy. Ecommerce, payments and a hosted agency platform are outside the initial scope.

@@ -1,8 +1,9 @@
 ---
-import { site } from '../site.config.mjs';
+import { site } from '../site.config.ts';
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+interface Props { title: string; description: string; noindex?: boolean; article?: boolean; }
 const { title, description, noindex = false, article = false } = Astro.props;
 const canonical = site.url ? new URL(Astro.url.pathname, site.url).href : null;
 ---

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { visiblePosts } from '../src/lib/blog.mjs';
+import { visiblePosts } from '../src/lib/blog.ts';
 
 const now = new Date('2026-10-28T12:00:00Z');
 const posts = [

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { checkReadiness } from '../scripts/ready.mjs';
-import { site } from '../src/site.config.mjs';
+import { checkReadiness } from '../scripts/ready.ts';
+import { site } from '../src/site.config.ts';
 
 const config = { name: 'northline-practice-42', assets: { directory: './dist' } };
 const realSite = { ...site, isDemo: false, businessName: 'A real business', contactEmail: 'owner@localstudio.co' };

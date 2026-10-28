@@ -8,12 +8,18 @@
     "npm": ">=9.6.5"
   },
   "scripts": {
-    "agency": "node scripts/agency.mjs",
-    "doctor": "node scripts/doctor.mjs",
-    "test": "node --test tests/*.test.mjs",
+    "agency": "node scripts/agency.ts",
+    "doctor": "node scripts/doctor.ts",
+    "test": "node --test tests/*.test.ts",
     "template:install": "npm --prefix templates/marketing-site ci",
     "template:test": "npm --prefix templates/marketing-site test",
     "template:build": "npm --prefix templates/marketing-site run build",
-    "check:generated": "node scripts/check-generated.mjs"
+    "check:generated": "node scripts/check-generated.ts",
+    "check": "tsc --noEmit",
+    "template:check": "npm --prefix templates/marketing-site run check"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "5.9.3"
   }
 }
