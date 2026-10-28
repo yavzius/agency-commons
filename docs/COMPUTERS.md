@@ -4,7 +4,7 @@ The agent checks the operating system, processor architecture, shell, and existi
 
 ## Before the agent can help locally
 
-If the person already uses a coding agent, start there: paste `https://github.com/yavzius/agency-commons`. The agent follows [START.md](../START.md), fetches its own working copy, and handles dependencies. Don't make them install a second agent or manually download/unzip the repo.
+If the person already uses a coding agent, start there: paste `https://github.com/yavzius/agency-commons`. The agent follows [START.md](../START.md), prepares a working copy, and handles dependencies.
 
 If they do not yet have an agent:
 

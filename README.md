@@ -8,15 +8,15 @@ Run a small local-business web agency by talking to an agent.
 https://github.com/yavzius/agency-commons
 ```
 
-Use Codex, Claude Code, or another coding agent with workspace access. The agent gets the starter, checks your setup, and guides you from there. You don't need to download a ZIP, unzip files, clone a repository, or install every tool yourself first.
+Use Codex, Claude Code, or your preferred coding agent. It handles setup and guides you from your first brief to a live website.
 
-**For the agent receiving this link:** if the person is here to start using Agency Commons, read [START.md](START.md), beginning with “Arriving from the repo link.” Prepare a working copy and continue onboarding; don't stop at summarizing the repository. Follow a specific review, research or maintenance request instead when that is what the person asked. If you can't fetch relative links, the entry point is [raw START.md](https://raw.githubusercontent.com/yavzius/agency-commons/main/START.md).
+**For agents:** follow [START.md](https://raw.githubusercontent.com/yavzius/agency-commons/main/START.md) to set up the project and guide the person forward.
 
-An open-source toolkit for people who understand a business but don't write code. Your agent handles files, dependencies, design, testing, deployment, and connected marketing tools. You own the accounts, choose the services, review the result, and learn how to manage it along the way.
+An open-source toolkit for building and managing local-business websites with AI. You describe the business and review the work. Your agent handles the technical steps, and you learn as you go.
 
-Start with marketing websites for small local businesses. Continue into domains, business email, enquiries, blogs, SEO/GEO, analytics, and optional advertising and background agents. There is no Agency Commons account or hosted platform to subscribe to.
+Start with a marketing website. Add domains, business email, enquiries, blogs, SEO/GEO, analytics, advertising, and background agents as needed. Everything runs in your chosen accounts.
 
-**Use your existing coding agent. Start with free hosting and get a working site live before adding more tools.** The documented default uses Codex with an existing ChatGPT subscription; another agent has its own access and usage limits.
+Start with your existing agent subscription and free hosting.
 
 ## Start here
 
@@ -24,11 +24,9 @@ Paste the repo link into the coding agent you already use. If it asks what you'd
 
 > Help me start with this. I'm not a developer. Set it up and guide me to a live website for a small local business. Keep additional spending at $0 and handle the technical steps for me.
 
-The agent fetches a working copy, checks its working environment, installs project dependencies, and shows a preview. It guides you through Cloudflare sign-in and connection when needed. You supply business facts, review the result, and complete account sign-ins, permissions and OS approvals.
+Your agent handles setup, builds a preview, and guides you through hosting and launch. It asks for business details, feedback, and account sign-ins when needed.
 
-If the app needs a workspace selected first, open or create an empty project folder and paste the same link. The agent must preserve unrelated projects and ask for a destination only when needed. You do not need a GitHub account just to fetch this public starter.
-
-If you don't have a coding agent installed, use the [Windows, macOS, or Linux setup path](docs/COMPUTERS.md). A chat that can read links but cannot write files or run commands can explain the next setup step; it cannot build or deploy the site by itself. The repository provides a shared workflow, not a guarantee that every agent has identical tools or automatically follows a bare URL.
+Need help getting a coding agent ready? See [setup for Windows, macOS, and Linux](docs/COMPUTERS.md).
 
 ## What happens next
 

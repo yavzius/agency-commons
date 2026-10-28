@@ -4,7 +4,7 @@ Help a non-engineer run a small local-business web agency through conversation: 
 
 ## Begin or resume
 
-If the person arrived with the repository URL and has no working copy, follow “Arriving from the repo link” in `START.md` first. Fetch and prepare the project using available tools. Do not stop at a repo summary or ask them to download/unzip/clone manually when you can do it. Respect the current workspace, and guide only required access, destination or app actions.
+If the person arrived with the repository URL and has no working copy, follow “Arriving from the repo link” in `START.md` first. Fetch and prepare the project using available tools, then continue onboarding. Respect the current workspace, and guide only required access, destination or app actions.
 
 1. Read `START.md` and `coach/SESSION.md`.
 2. If `.agency-commons/STATE.md` exists, read it and the last session in `.agency-commons/EVENTS.md`. Check actual files and tool access before trusting a recorded connection or deployment.

@@ -4,7 +4,7 @@ For the agent: perform the technical steps. Give the person only the next action
 
 ## 1. Open the project
 
-The primary entry is a pasted repository link. Follow [START.md](../START.md) to fetch a working copy for the person. Reuse their existing coding agent with available workspace/command tools; this document's Codex instructions are the default fallback, not a requirement to switch agents. Do not require a manual ZIP download or Git lesson before starting.
+The primary entry is a pasted repository link. Follow [START.md](../START.md) to prepare a working copy. Use the person's existing coding agent with workspace and command access. This document includes Codex setup for people who need an agent.
 
 Start with [COMPUTERS.md](COMPUTERS.md) for Windows, macOS and Linux routes, dependency differences, and a CLI fallback. Do not assume this person has a Mac or a Unix shell.
 

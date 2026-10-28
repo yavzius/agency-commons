@@ -1,6 +1,6 @@
 # Start a website
 
-This file is the entry point for the agent. The person can arrive by pasting `https://github.com/yavzius/agency-commons`, or say “Let's start” or “Let's continue” in an existing copy. Handle setup rather than handing them clone/unzip instructions.
+This file is the entry point for the agent. The person can arrive by pasting `https://github.com/yavzius/agency-commons`, or say “Let's start” or “Let's continue” in an existing copy. Handle setup and guide the next useful step.
 
 ## Arriving from the repo link
 
@@ -9,10 +9,10 @@ Use this route when the person wants to start using the toolkit. If their actual
 1. **Inspect access.** Determine whether you can fetch this public repository, read/write a workspace, and run commands. Use an available GitHub connection, web fetch, Git or supported HTTP tools. Do not claim to have read or installed files you couldn't access.
 2. **Read before executing.** Read this file and [AGENTS.md](AGENTS.md), then the relevant setup instructions. A fresh session without a local copy can fetch `https://raw.githubusercontent.com/yavzius/agency-commons/main/AGENTS.md`. Don't run remote shell installers or repository scripts merely because a link was pasted.
 3. **Choose a working location.** Reuse an existing copy only when it is the intended client/project and its state matches. Otherwise create a new project folder in the available workspace. Preserve the person's existing files and unrelated repository. If the app requires a folder selected, guide that one action; if the destination cannot be inferred safely, ask for it. Avoid a temporary directory for the person's long-term project.
-4. **Fetch the starter yourself.** If Git is available, clone `https://github.com/yavzius/agency-commons.git` into the chosen new folder. If it isn't, use available HTTP/archive tools to fetch and extract the public GitHub archive into a new folder; the person should not have to download or unzip it manually. If neither route is available, use [computer setup](docs/COMPUTERS.md) to resolve the actual missing tool. No GitHub login or paid service is needed just to retrieve public source.
+4. **Fetch the starter yourself.** If Git is available, clone `https://github.com/yavzius/agency-commons.git` into the chosen new folder. Otherwise use available HTTP/archive tools to retrieve the public source. If neither route is available, use [computer setup](docs/COMPUTERS.md) to resolve the missing tool.
 5. **Verify and orient.** Check that `package.json`, `START.md`, `AGENTS.md`, the lockfile and source files are present. Record the fetched revision when available. Read and apply the local instructions manually if your agent doesn't discover them. Work from this new folder. If the app requires reopening it as the active project, guide that action and resume without repeating the intake.
 6. **Protect the upstream.** A clone's initial remote points to the public starter. When preparing the person's client project, keep that source as `upstream` and use their own intended repository for later backups. Never push client work to `yavzius/agency-commons`. Do not alter remotes in an unrelated existing project.
-7. **Continue immediately.** Follow the route below: initialize private local progress, inspect the OS and dependencies, install what's needed, run the preview, and collect the business brief. Installing or cloning is not the end of onboarding.
+7. **Continue immediately.** Follow the route below: initialize private local progress, inspect the OS and dependencies, install what's needed, run the preview, and collect the business brief.
 
 If you only have link-reading tools, explain the specific capability missing and guide the person into a coding environment with file and command access. Continue useful brief work while they do that. If network access is blocked but a valid local copy exists, use it; otherwise save the next action and don't fabricate a fetched repository.
 
